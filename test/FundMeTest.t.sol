@@ -24,4 +24,10 @@ contract FundMeTest is Test {
         assertEq(fundMe.i_owner(), address(this));
         // assertEq(fundMe.i_owner(), msg.sender); it fails because msg.sender is not the owner ; contract is the owner see the comments(above) to get more info
     }
+
+    function testPriceFeedVersionIsAccurate() public view {
+        uint256 version = fundMe.getVersion();
+        console.log(version);
+        assertEq(version, 4);
+    }
 }
